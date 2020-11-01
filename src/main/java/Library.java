@@ -35,6 +35,23 @@ public class Library {
         }
     }
 
+    public void showAllAvailableBooks() {
+        for (Map.Entry<Integer, Book> item : books.entrySet()) {
+            if(item.getValue().isFree())
+                System.out.println(item.getKey() + " --------" + item.getValue().showBook());
+        }
+    }
+
+    public void returnBookById(int id){
+        books.get(id).setFree(true);
+    }
+
+    public void borrow(int id, User user){
+        books.get(id).setFree(false);
+        books.get(id).setOwner(user);
+        user.setNumberOfBorrowedBooks(user.getNumberOfBorrowedBooks()+1);
+    }
+
     public void addBook(String Name, String Author) {
         Book newBook = new Book(Name, Author, true);
         books.put(newBook.getId(), newBook);

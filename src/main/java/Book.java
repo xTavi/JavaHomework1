@@ -8,6 +8,7 @@ public class Book {
     private String Name;
     private String Author;
     private boolean Free;
+    private User owner;
 
     public Book() {
         counter += 1;
@@ -68,6 +69,14 @@ public class Book {
         System.out.println("Nume: " + this.getName() + "Autor:" + this.getAuthor());
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -76,12 +85,22 @@ public class Book {
                 ", Name='" + Name + '\'' +
                 ", Author='" + Author + '\'' +
                 ", Free=" + Free +
+                ", owner=" + owner +
                 '}';
     }
 
     public String showBook(){
         return " Nume: " + this.getName() +
                 ", Autor: " + this.getAuthor() +
-                ", Imprumutabila: " + this.isFree();
+                ", Imprumutabila: " + this.isFree() +
+                ownedBy();
+
+    }
+
+    private String ownedBy(){
+       if(this.isFree())
+           return "";
+       return ", Detinuta de: " +  this.getOwner();
+
     }
 }
