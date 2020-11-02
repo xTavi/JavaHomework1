@@ -1,14 +1,22 @@
+import configuration.ProjectConfiguration;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import service.Library;
+import service.User;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
 
-
-        Library library = new Library();
+//        Library library = new Library();
 
         User user1 = new User("Mihai", "Home1");
         User user2 = new User("Mihai", "Home1");
+
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
+        Library library = context.getBean(Library.class);
+
 
         try {
             Scanner scanner = new Scanner(System.in);

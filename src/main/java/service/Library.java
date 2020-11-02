@@ -1,10 +1,18 @@
+package service;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+@Component
 @ComponentScan
+@Service
 public class Library {
 
     private final Map<Integer, Book> books;
@@ -60,10 +68,10 @@ public class Library {
     public void addBook() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter the Title of The Book: ");
+        System.out.println("Enter the Title of Book: ");
         String title = scanner.nextLine();  // Read user input
 
-        System.out.println("Enter the Author of The Book: ");
+        System.out.println("Enter the Author of Book: ");
         String author = scanner.nextLine();  // Read user input
 
         Book book = new Book(title, author, true);

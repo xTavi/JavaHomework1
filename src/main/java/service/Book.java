@@ -1,3 +1,5 @@
+package service;
+
 import java.util.UUID;
 
 public class Book {
@@ -79,7 +81,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "service.Book{" +
                 "Id=" + Id +
                 ", Isbn=" + Isbn +
                 ", Name='" + Name + '\'' +

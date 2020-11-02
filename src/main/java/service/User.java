@@ -1,3 +1,5 @@
+package service;
+
 public class User {
 
     private static int counter = 0;
@@ -53,7 +55,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "service.User{" +
                 "Id=" + Id +
                 ", Name='" + Name + '\'' +
                 ", Location='" + Location + '\'' +
